@@ -1,8 +1,7 @@
 package com.hasan;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.FileSystemResource;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Hello world!
@@ -12,7 +11,11 @@ public class App
 {
     public static void main( String[] args )
     {
-        BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
+
+        //BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
+
+        ApplicationContext factory = new ClassPathXmlApplicationContext("spring.xml");
+
 
         Alien alien = (Alien) factory.getBean("alien");
         alien.code();
